@@ -7,6 +7,9 @@ spring:
         url: jdbc:mysql://localhost:3306/shop?serverTimeZone=UTC
         username: shop
         password: Shop123!
+    devtools:
+        livereload:
+            enabled: true
     jpa:
         properties:
             hibernate:
@@ -15,6 +18,8 @@ spring:
         hibernate:
             ddl-auto: create
         database-platform: org.hibernate.dialect.MySQL8Dialect
+    thymeleaf:
+        cache: false
 logging:
     level:
         org.hibernate.type:
