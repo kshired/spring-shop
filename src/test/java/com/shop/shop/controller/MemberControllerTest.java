@@ -46,7 +46,7 @@ class MemberControllerTest {
     @Test
     @DisplayName("로그인 성공 테스트")
     public void loginSuccessTest() throws Exception{
-        String email = "test@email.com";
+        String email = "test1@email.com";
         String password = "1234";
 
         this.createMember(email,password);
@@ -60,7 +60,7 @@ class MemberControllerTest {
     @Test
     @DisplayName("로그인 실패 테스트")
     public void loginFailureTest() throws Exception{
-        String email = "test@email.com";
+        String email = "test2@email.com";
         String password = "1234";
 
         this.createMember(email,password);

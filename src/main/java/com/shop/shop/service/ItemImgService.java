@@ -6,11 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import java.io.IOException;
+
+import static org.thymeleaf.util.StringUtils.isEmpty;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class ItemImgService {
         String imgName = "";
         String imgUrl = "";
 
-        if(!StringUtils.isEmpty(oriImgName)){
+        if(!isEmpty(oriImgName)){
             imgName = fileService.uploadFile(itemImgLocation,oriImgName,itemImgFile.getBytes());
             imgUrl = "/images/item/" + imgName;
         }
@@ -40,7 +41,7 @@ public class ItemImgService {
         if(!itemImgFile.isEmpty()){
             ItemImg savedItemImg = itemImgRepository.findById(itemImgId).orElseThrow(EntityNotFoundException::new);
 
-            if(!StringUtils.isEmpty(savedItemImg.getImgName())){
+            if(!isEmpty(savedItemImg.getImgName())){
                 fileService.deleteFile(itemImgLocation+"/"+savedItemImg.getImgName());
             }
 
