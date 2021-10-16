@@ -52,5 +52,8 @@ public class Item extends BaseEntity {
         this.stockNumber = restStock;
     }
 
-
+    public void addStock(int stockNumber){
+        System.out.println("stockNumber = " + stockNumber);
+        this.stockNumber += stockNumber;
+    }
 }

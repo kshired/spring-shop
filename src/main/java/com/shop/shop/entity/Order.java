@@ -58,4 +58,12 @@ public class Order extends BaseEntity{
                 .mapToInt(OrderItem::getTotalPrice)
                 .sum();
     }
+
+    public void cancelOrder(){
+        this.orderStatus = OrderStatus.CANCEL;
+
+        for (OrderItem orderItem: this.orderItems){
+            orderItem.cancel();
+        }
+    }
 }
